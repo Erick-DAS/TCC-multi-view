@@ -1,0 +1,3 @@
+[submodule "vendor/multiview"]
+	path = vendor/multiview
+	url = https://github.com/c2d-usp/Adaptive-Multi-view-Neighborhood-Retrieval
