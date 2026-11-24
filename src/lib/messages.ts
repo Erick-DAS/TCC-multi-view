@@ -149,19 +149,12 @@ const pt = {
       'Beyond Single-Space Representation: Adaptive Multi-View Neighborhood Retrieval for Tabular Learning',
     body: 'Aceito no S+SSPR 2026 (workshop internacional da IAPR), a ser publicado na série LNCS (Springer).',
     codeButton: 'Código do método',
-    creditsEyebrow: 'Créditos',
-    credits: [
-      'Autor: Erick Diogo de Almeida Sousa',
-      'Orientadora: Profa. Dra. Anna Helena Reali Costa',
-      'Coorientador: Prof. Dr. Artur Jordão Lima Correia',
-      'Projeto DeepTab, Centro de Ciência de Dados (C2D), Escola Politécnica da USP',
-    ],
   },
   footer: 'Inferência com recuperação de instâncias vizinhas e projeção de atributos em dados tabulares · 2026',
 }
 
 const en: typeof pt = {
-  brand: 'Multi-view Neighbors',
+  brand: 'Multi-view Neighborhood',
   nav: {
     problema: 'The problem',
     metodo: 'How it works',
@@ -310,13 +303,6 @@ const en: typeof pt = {
       'Beyond Single-Space Representation: Adaptive Multi-View Neighborhood Retrieval for Tabular Learning',
     body: 'Accepted at S+SSPR 2026 (international IAPR workshop), to appear in the LNCS series (Springer).',
     codeButton: 'Code of the method',
-    creditsEyebrow: 'Credits',
-    credits: [
-      'Author: Erick Diogo de Almeida Sousa',
-      'Advisor: Prof. Dr. Anna Helena Reali Costa',
-      'Co-advisor: Prof. Dr. Artur Jordão Lima Correia',
-      'DeepTab project, Center for Data Science (C2D), Polytechnic School of the University of São Paulo',
-    ],
   },
   footer: 'Inference with neighbor instance retrieval and feature projection on tabular data · 2026',
 }

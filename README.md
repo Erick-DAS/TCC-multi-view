@@ -30,12 +30,6 @@ npm install
 npm run dev
 ```
 
-Outros comandos:
-
-- `npm run build`: gera o site estático em `dist/`.
-- `npm run preview`: serve o `dist/` localmente.
-- `npm run check`: checagem de tipos do Svelte e do TypeScript.
-
 ## Como regerar os dados da demonstração
 
 O `data.json` já está versionado, de modo que rodar o site não exige Python nem os dados do TALENT.
@@ -55,36 +49,3 @@ O script executa os quatro cenários na configuração do artigo (k = 10, normal
 rede com 32 unidades escondidas, 300 épocas, temperatura 0,1) e escreve, para cada uma das 346
 consultas de teste, os 20 vizinhos mais próximos em cada cenário, os cinco pesos atribuídos pela
 rede e as coordenadas t-SNE usadas apenas para exibir o mapa.
-
-A execução leva cerca de doze segundos em CPU.
-
-## Notas de reprodução
-
-O método não fixa as sementes da projeção aleatória gaussiana nem da inicialização da rede,
-como o README oficial informa, e por isso o `export/` fixa uma semente própria (`--seed`,
-20261118 por padrão). Com ela, a execução é determinística.
-
-Os dois cenários determinísticos reproduzem exatamente a acurácia publicada no artigo para o
-`car-evaluation`, com 86,99% no espaço original e 86,99% com PCA. Os dois cenários que dependem
-das sementes variam entre execuções: em cinco sementes, o multi-view uniforme ficou entre 88,15%
-e 91,04% (o artigo reporta 89,88%) e o multi-view adaptativo, entre 93,93% e 96,24% (o artigo
-reporta 93,35%).
-
-A seção de resultados do site mostra os valores publicados no artigo, e os painéis interativos
-usam a execução versionada aqui.
-
-As classes seguem a codificação do TALENT, em que a classe 2 é `vgood` e a classe 3 é `good`.
-A ordem foi determinada pelas contagens do conjunto (1210, 384, 65, 69), já que `good` tem 69
-amostras e `vgood` tem 65 no car-evaluation original.
-
-## Publicação
-
-O site é publicado em https://erick-das.github.io/TCC-multi-view/ pelo workflow
-`.github/workflows/deploy.yml`, a cada push na branch `main`.
-
-## Créditos
-
-- Autor: Erick Diogo de Almeida Sousa.
-- Orientadora: Profa. Dra. Anna Helena Reali Costa.
-- Coorientador: Prof. Dr. Artur Jordão Lima Correia.
-- Projeto DeepTab, Centro de Ciência de Dados (C2D), Escola Politécnica da USP.

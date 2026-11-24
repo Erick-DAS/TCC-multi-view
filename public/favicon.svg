@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Mesmo desenho da marca em src/lib/components/Nav.svelte, com as cores do tema fixadas aqui,
+       já que o favicon não enxerga as variáveis CSS da página. -->
+  <style>
+    .ink { color: #151924; }
+    .c1 { fill: #2a78d6; }
+    .c2 { fill: #eb6834; }
+    .c3 { fill: #1baf7a; }
+    .c4 { fill: #4a3aa7; }
+    @media (prefers-color-scheme: dark) {
+      .ink { color: #eef0f5; }
+      .c1 { fill: #3987e5; }
+      .c2 { fill: #d95926; }
+      .c3 { fill: #199e70; }
+      .c4 { fill: #6d5fd0; }
+    }
+  </style>
+  <g class="ink">
+    <circle cx="12" cy="12" r="3" fill="currentColor" />
+    <circle class="c1" cx="4" cy="6" r="2" />
+    <circle class="c2" cx="20" cy="7" r="2" />
+    <circle class="c3" cx="18" cy="19" r="2" />
+    <circle class="c4" cx="6" cy="18" r="2" />
+    <path d="M12 12 4 6M12 12l8-5M12 12l6 7M12 12l-6 6" stroke="currentColor" stroke-width="1.2" opacity=".5" />
+  </g>
+</svg>
