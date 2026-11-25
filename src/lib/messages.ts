@@ -147,7 +147,7 @@ const pt = {
     eyebrow: 'Publicação',
     title:
       'Beyond Single-Space Representation: Adaptive Multi-View Neighborhood Retrieval for Tabular Learning',
-    body: 'Aceito no S+SSPR 2026 (workshop internacional da IAPR), a ser publicado na série LNCS (Springer).',
+    body: 'Publicado no Joint IAPR International Workshops on Statistical Techniques in Pattern Recognition and Structural and Syntactic Pattern Recognition.',
     codeButton: 'Código do método',
   },
   footer: 'Inferência com recuperação de instâncias vizinhas e projeção de atributos em dados tabulares · 2026',
@@ -301,7 +301,7 @@ const en: typeof pt = {
     eyebrow: 'Publication',
     title:
       'Beyond Single-Space Representation: Adaptive Multi-View Neighborhood Retrieval for Tabular Learning',
-    body: 'Accepted at S+SSPR 2026 (international IAPR workshop), to appear in the LNCS series (Springer).',
+    body: 'Published at the Joint IAPR International Workshops on Statistical Techniques in Pattern Recognition and Structural and Syntactic Pattern Recognition.',
     codeButton: 'Code of the method',
   },
   footer: 'Inference with neighbor instance retrieval and feature projection on tabular data · 2026',

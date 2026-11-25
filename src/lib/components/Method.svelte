@@ -21,28 +21,32 @@
   const examples = [dominantQuery(2), dominantQuery(0)].map((q) => data.alpha[q])
 
   // Pontos ilustrativos do primeiro passo, com gerador determinístico.
+  // Cada espaço reposiciona os mesmos pontos em coordenadas unitárias [0, 1].
   const illustration = (() => {
     let seed = 7
     const rnd = () => {
       seed = (seed * 1664525 + 1013904223) % 4294967296
       return seed / 4294967296
     }
-    const points = Array.from({ length: 36 }, () => ({
-      x: rnd() * 72 + 4,
-      y: rnd() * 80 + 6,
+    const points = Array.from({ length: 30 }, () => ({
+      x: rnd(),
+      y: rnd(),
       cls: Math.floor(rnd() * 4),
     }))
-    const spaces: { label: string; map: (p: { x: number; y: number; cls: number }) => [number, number] }[] = [
-      { label: 'Original', map: (p) => [p.x, p.y] },
-      { label: 'PCA', map: (p) => [p.x * 0.9 + p.y * 0.2, p.y * 0.5 + 20] },
-      { label: 'LDA', map: (p) => [p.x * 0.5 + p.cls * 14, p.y * 0.8 + p.cls * 5] },
+    type Point = (typeof points)[number]
+    const maps: ((p: Point) => [number, number])[] = [
+      (p) => [p.x, p.y],
+      (p) => [0.8 * p.x + 0.2 * p.y, 0.5 * p.y + 0.25],
+      (p) => [0.35 * p.x + 0.2 * p.cls, 0.6 * p.y + 0.08 * p.cls],
+      (p) => [0.55 * p.x + 0.45 * (1 - p.y), 0.3 * p.x + 0.7 * p.y],
+      (p) => [0.4 * p.x + 0.6 * p.y, 0.25 + 0.5 * p.x],
     ]
-    return spaces.map((space, column) => ({
-      label: space.label,
-      x: 12 + column * 100,
+    const panel = 60
+    return maps.map((map, column) => ({
+      center: column * panel + panel / 2,
       marks: points.map((p) => {
-        const [x, y] = space.map(p)
-        return { d: markerPath(p.cls, 12 + column * 100 + x, 8 + y * 0.9, 2.4), cls: p.cls }
+        const [u, v] = map(p)
+        return { d: markerPath(p.cls, column * panel + 8 + u * 44, 8 + v * 88, 2), cls: p.cls }
       }),
     }))
   })()
@@ -60,11 +64,11 @@
       <div class="step">
         <div class="fig">
           <svg viewBox="0 0 300 120" aria-hidden="true">
-            {#each illustration as space (space.label)}
+            {#each illustration as space, column (column)}
               {#each space.marks as mark, i (i)}
                 <path d={mark.d} fill={CLASS_COLORS[mark.cls]} opacity="0.85" />
               {/each}
-              <text x={space.x} y="112">{space.label}</text>
+              <text x={space.center} y="112" text-anchor="middle">{m.views[column]}</text>
             {/each}
           </svg>
         </div>
